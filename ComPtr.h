@@ -156,10 +156,7 @@ private:
       if (RefCounts[px] == 0)
         OutputDebugString("RefCount already 0!!");
 #endif
-      // Cast to IUnknown: otherwise we need to include the C-Map header files all over the place
-      // (for the compiler to know all the different interfaces at this point)
       ((IUnknown*)px)->Release();
-      //TComPtrRelease(px);
 #ifdef TRACK_REFCOUNTS
       RefCounts[px] -= 1;
 #endif
@@ -170,8 +167,6 @@ private:
   {
     if (px)
       {
-      // Cast to IUnknown: otherwise we need to include the C-Map header files all over the place
-      // (for the compiler to know all the different interfaces at this point)
       ((IUnknown*)px)->AddRef();
 #ifdef TRACK_REFCOUNTS
       RefCounts[px] += 1;

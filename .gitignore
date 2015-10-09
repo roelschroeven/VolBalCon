@@ -1,0 +1,10 @@
+Debug
+Release
+*.local
+__History
+*.dsk
+*.twfd
+*.twopts
+twfiles.@@@
+.*.swp
+App

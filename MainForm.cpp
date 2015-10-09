@@ -112,6 +112,7 @@ void TFormMain::CreateChannelControls()
       pTrackBar->ThumbLength = TrackBarChannel0->ThumbLength;
       pTrackBar->TickMarks = TrackBarChannel0->TickMarks;
       pTrackBar->TickStyle = TrackBarChannel0->TickStyle;
+      pTrackBar->TabStop = TrackBarChannel0->TabStop;
 
       pTrackBar->Top = TrackBarChannel0->Top;
       pTrackBar->Left = TrackBarChannel0->Left + i * TrackBarChannel0->Width;

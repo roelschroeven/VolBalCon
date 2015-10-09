@@ -35,6 +35,7 @@ private:	// User declarations
   std::vector<TTrackBar*> m_ChannelSliders;
   void CreateChannelControls();
   void InitControlPositions();
+  void PositionWindow();
 
   float GetMasterVolume();
   void SetMasterVolume(float Volume);

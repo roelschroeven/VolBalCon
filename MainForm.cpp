@@ -34,12 +34,48 @@ __fastcall TFormMain::TFormMain(TComponent* Owner)
 
   CreateChannelControls();
   InitControlPositions();
+
+  PositionWindow();
 }
 //---------------------------------------------------------------------------
 
 __fastcall TFormMain::~TFormMain()
 {
   m_VolumeControl->UnregisterControlChangeNotify(m_VolumeCallback.get());
+}
+//---------------------------------------------------------------------------
+
+BOOL CALLBACK MonitorEnumProc(HMONITOR hMonitor, HDC hDcMonitor, RECT *pRcMonitor, LPARAM dwData)
+{
+  std::vector<HMONITOR> *pMonitors = (std::vector<HMONITOR> *)dwData;
+  pMonitors->push_back(hMonitor);
+  return FALSE; // Stop enumeration after the first one found
+}
+
+static TRect GetPrimMonitorRect()
+{
+  HDC hPrimMonitorDC = GetDC(NULL);
+
+  std::vector<HMONITOR> Monitors;
+  EnumDisplayMonitors(hPrimMonitorDC, NULL, MonitorEnumProc, (DWORD)&Monitors);
+  size_t s = Monitors.size();
+  assert(!Monitors.empty());
+
+  ReleaseDC(NULL, hPrimMonitorDC);
+
+  MONITORINFO MonitorInfo;
+  memset(&MonitorInfo, 0, sizeof(MonitorInfo));
+  MonitorInfo.cbSize = sizeof(MonitorInfo);
+  GetMonitorInfo(Monitors[0], &MonitorInfo);
+
+  return MonitorInfo.rcWork;
+}
+
+void TFormMain::PositionWindow()
+{
+  TRect PrimMonitorRect = GetPrimMonitorRect();
+  Left = PrimMonitorRect.Right - Width - GetSystemMetrics(SM_CXSIZEFRAME);
+  Top = PrimMonitorRect.Bottom - Height - GetSystemMetrics(SM_CYSIZEFRAME);
 }
 //---------------------------------------------------------------------------
 

@@ -12,6 +12,12 @@
 TFormMain *FormMain;
 //---------------------------------------------------------------------------
 
+static void HideFocusRectangle(TWinControl *Control)
+{
+  SendMessage(Control->Handle, WM_UPDATEUISTATE, MAKEWPARAM(UIS_SET, UISF_HIDEFOCUS), 0);
+}
+//---------------------------------------------------------------------------
+
 GUID OUR_VOLUME_CHANGE_CONTEXT = { 0xfbf3e7b5, 0x601, 0x4a33, { 0xb2, 0x89, 0x4d, 0x85, 0x07, 0x3ba, 0xfb6 } };
 
 __fastcall TFormMain::TFormMain(TComponent* Owner)
@@ -30,6 +36,8 @@ __fastcall TFormMain::TFormMain(TComponent* Owner)
   m_VolumeCallback = new TVolumeCallback(&OnVolumeChange);
   m_VolumeControl->RegisterControlChangeNotify(m_VolumeCallback.get());
 
+  HideFocusRectangle(TrackBarMaster);
+  HideFocusRectangle(TrackBarChannel0);
   CreateChannelControls();
   InitControlPositions();
 
@@ -111,6 +119,7 @@ void TFormMain::CreateChannelControls()
       pTrackBar->TickMarks = TrackBarChannel0->TickMarks;
       pTrackBar->TickStyle = TrackBarChannel0->TickStyle;
       pTrackBar->TabStop = TrackBarChannel0->TabStop;
+      HideFocusRectangle(pTrackBar);
 
       pTrackBar->Top = TrackBarChannel0->Top;
       pTrackBar->Left = TrackBarChannel0->Left + i * TrackBarChannel0->Width;

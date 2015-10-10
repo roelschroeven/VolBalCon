@@ -8,6 +8,7 @@
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <ComCtrls.hpp>
+#include <ExtCtrls.hpp>
 #pragma message "End of auto-included header files"
 //---------------------------------------------------------------------------
 

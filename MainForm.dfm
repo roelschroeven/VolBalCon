@@ -1,6 +1,7 @@
 object FormMain: TFormMain
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'VolBalCon'
   ClientHeight = 201

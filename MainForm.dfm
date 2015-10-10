@@ -2,7 +2,7 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   BorderStyle = bsSingle
-  Caption = 'Mix'
+  Caption = 'VolBalCon'
   ClientHeight = 201
   ClientWidth = 171
   Color = clBtnFace

@@ -201,3 +201,10 @@ void __fastcall TFormMain::TrackBarChannelChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormMain::FormKeyPress(TObject *Sender, wchar_t &Key)
+{
+  if (Key == VK_ESCAPE)
+    Close();
+}
+//---------------------------------------------------------------------------
+

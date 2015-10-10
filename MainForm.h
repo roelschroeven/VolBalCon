@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
   TTrackBar *TrackBarChannel0;
   void __fastcall TrackBarMasterChange(TObject *Sender);
   void __fastcall TrackBarChannelChange(TObject *Sender);
+  void __fastcall FormKeyPress(TObject *Sender, wchar_t &Key);
 
 private:	// User declarations
   TComPtr<IAudioEndpointVolume> m_VolumeControl;

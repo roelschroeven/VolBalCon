@@ -61,17 +61,6 @@
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<ItemGroup>
-			<CppCompile Include="VolBalCon.cpp">
-				<BuildOrder>0</BuildOrder>
-			</CppCompile>
-			<ResFiles Include="VolBalCon.res">
-				<BuildOrder>1</BuildOrder>
-			</ResFiles>
-			<CppCompile Include="MainForm.cpp">
-				<Form>FormMain</Form>
-				<DependentOn>MainForm.h</DependentOn>
-				<BuildOrder>2</BuildOrder>
-			</CppCompile>
 			<CppCompile Include="ComPtr.cpp">
 				<DependentOn>ComPtr.h</DependentOn>
 				<BuildOrder>3</BuildOrder>
@@ -80,6 +69,17 @@
 				<DependentOn>VolumeCallback.h</DependentOn>
 				<BuildOrder>4</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="MainForm.cpp">
+				<Form>FormMain</Form>
+				<DependentOn>MainForm.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="VolBalCon.cpp">
+				<BuildOrder>0</BuildOrder>
+			</CppCompile>
+			<ResFiles Include="VolBalCon.res">
+				<BuildOrder>1</BuildOrder>
+			</ResFiles>
 			<FormResources Include="MainForm.dfm"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

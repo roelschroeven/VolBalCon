@@ -92,9 +92,13 @@ void TFormMain::CreateChannelControls()
   if (NrChannels < 1)
     NrChannels = 1;
 
+  // Put first channel track bar in our vector of channel track bars, if it wasn't
+  // already there
   if (m_ChannelSliders.empty())
     m_ChannelSliders.push_back(TrackBarChannel0);
 
+  // Add or remove channel track bars as needed. Use the first track bar (which is
+  // static) as reference
   if (NrChannels < m_ChannelSliders.size())
     {
     for (unsigned i = NrChannels; i < m_ChannelSliders.size(); ++i)
@@ -129,6 +133,7 @@ void TFormMain::CreateChannelControls()
       }
     }
 
+  // Resize groupbox and window as needed
   GroupBoxChannels->Width = 2 * TrackBarChannel0->Left + NrChannels * TrackBarChannel0->Width;
   ClientWidth = GroupBoxChannels->Left + GroupBoxChannels->Width + GroupBoxMaster->Left;
 }

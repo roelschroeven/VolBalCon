@@ -3,9 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#pragma link "TrescoUtilLib.lib"
-
-#include <TrescoUtilLib.h>
+#include <Mmdeviceapi.h>
 
 #include "MainForm.h"
 //---------------------------------------------------------------------------

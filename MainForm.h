@@ -11,7 +11,7 @@
 #pragma message "End of auto-included header files"
 //---------------------------------------------------------------------------
 
-#include <Mmdeviceapi.h>
+#include <vector>
 #include <Endpointvolume.h>
 
 #include "ComPtr.h"

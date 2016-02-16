@@ -19,6 +19,7 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<BCC_PCHUsage>None</BCC_PCHUsage>
 			<OutputExt>exe</OutputExt>
 			<LinkPackageStatics>rtl.lib;vcl.lib</LinkPackageStatics>
 			<FinalOutputDir>App</FinalOutputDir>
@@ -61,38 +62,38 @@
 			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
 		</PropertyGroup>
 		<ItemGroup>
-			<CppCompile Include="Presets.cpp">
-				<DependentOn>Presets.h</DependentOn>
-				<BuildOrder>5</BuildOrder>
+			<CppCompile Include="VolBalCon.cpp">
+				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<ResFiles Include="VolBalCon.res">
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
-			<CppCompile Include="PromptForString.cpp">
-				<Form>FormPromptForString</Form>
-				<DependentOn>PromptForString.h</DependentOn>
-				<BuildOrder>7</BuildOrder>
+      <CppCompile Include="MainForm.cpp">
+				<Form>FormMain</Form>
+				<DependentOn>MainForm.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="ComPtr.cpp">
+				<DependentOn>ComPtr.h</DependentOn>
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="VolumeCallback.cpp">
+				<DependentOn>VolumeCallback.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="Presets.cpp">
+				<DependentOn>Presets.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="PresetsForm.cpp">
 				<Form>FormPresets</Form>
 				<DependentOn>PresetsForm.h</DependentOn>
 				<BuildOrder>6</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="VolumeCallback.cpp">
-				<DependentOn>VolumeCallback.h</DependentOn>
-				<BuildOrder>4</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="ComPtr.cpp">
-				<DependentOn>ComPtr.h</DependentOn>
-				<BuildOrder>3</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="VolBalCon.cpp">
-				<BuildOrder>0</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="MainForm.cpp">
-				<Form>FormMain</Form>
-				<DependentOn>MainForm.h</DependentOn>
-				<BuildOrder>2</BuildOrder>
+			<CppCompile Include="PromptForString.cpp">
+				<Form>FormPromptForString</Form>
+				<DependentOn>PromptForString.h</DependentOn>
+				<BuildOrder>7</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="Util.cpp">
 				<DependentOn>Util.h</DependentOn>

@@ -6,6 +6,7 @@
 #include <RsUtil.h>
 
 #include "PromptForString.h"
+#include "Util.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -25,6 +26,7 @@ bool PromptForString(const String &Prompt, String &Value)
 
 __fastcall TFormPromptForString::TFormPromptForString(TComponent* Owner)
   : TForm(Owner)
+  , m_bFirstIdle(true)
 {
 }
 //---------------------------------------------------------------------------
@@ -42,3 +44,14 @@ String TFormPromptForString::GetValue()
   return EditValue->Text;
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TFormPromptForString::ApplicationEventsIdle(TObject *Sender, bool &Done)
+{
+  if (m_bFirstIdle)
+    {
+    m_bFirstIdle = false;
+    EnsureOnScreen(this);
+    }
+}
+//---------------------------------------------------------------------------
+

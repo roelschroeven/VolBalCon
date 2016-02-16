@@ -22,10 +22,6 @@ object FormPromptForString: TFormPromptForString
     Align = alClient
     ShowCaption = False
     TabOrder = 0
-    ExplicitLeft = 224
-    ExplicitTop = 32
-    ExplicitWidth = 225
-    ExplicitHeight = 73
     DesignSize = (
       497
       75)
@@ -53,9 +49,6 @@ object FormPromptForString: TFormPromptForString
     Align = alBottom
     ShowCaption = False
     TabOrder = 1
-    ExplicitLeft = 320
-    ExplicitTop = 120
-    ExplicitWidth = 185
     DesignSize = (
       497
       41)
@@ -69,7 +62,6 @@ object FormPromptForString: TFormPromptForString
       Default = True
       ModalResult = 1
       TabOrder = 0
-      ExplicitLeft = 351
     end
     object ButtonCancel: TButton
       Left = 416
@@ -81,7 +73,11 @@ object FormPromptForString: TFormPromptForString
       Caption = 'Cancel'
       ModalResult = 2
       TabOrder = 1
-      ExplicitLeft = 432
     end
+  end
+  object ApplicationEvents: TApplicationEvents
+    OnIdle = ApplicationEventsIdle
+    Left = 56
+    Top = 16
   end
 end

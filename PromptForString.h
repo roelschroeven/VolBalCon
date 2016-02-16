@@ -8,6 +8,7 @@
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <ExtCtrls.hpp>
+#include <AppEvnts.hpp>
 #pragma message "End of auto-included headers"
 //---------------------------------------------------------------------------
 
@@ -23,8 +24,11 @@ __published:	// IDE-managed Components
   TButton *ButtonOk;
   TButton *ButtonCancel;
   TEdit *EditValue;
+  TApplicationEvents *ApplicationEvents;
+  void __fastcall ApplicationEventsIdle(TObject *Sender, bool &Done);
 
 private:	// User declarations
+  bool m_bFirstIdle;
 
 public:		// User declarations
   __fastcall TFormPromptForString(TComponent* Owner);

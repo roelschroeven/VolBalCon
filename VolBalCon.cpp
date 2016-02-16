@@ -4,9 +4,9 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("MainForm.cpp", FormMain);
-USEFORM("PresetsForm.cpp", FormPresets);
 USEFORM("PromptForString.cpp", FormPromptForString);
+USEFORM("PresetsForm.cpp", FormPresets);
+USEFORM("MainForm.cpp", FormMain);
 //---------------------------------------------------------------------------
 #pragma link "rsutil.lib"
 //---------------------------------------------------------------------------

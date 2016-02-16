@@ -94,6 +94,10 @@
 				<DependentOn>MainForm.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="Util.cpp">
+				<DependentOn>Util.h</DependentOn>
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
 			<FormResources Include="PromptForString.dfm"/>
 			<FormResources Include="PresetsForm.dfm"/>
 			<FormResources Include="MainForm.dfm"/>

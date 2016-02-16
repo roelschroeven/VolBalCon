@@ -7,6 +7,7 @@
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
+#include <AppEvnts.hpp>
 #pragma message "End of auto-included header files"
 //---------------------------------------------------------------------------
 
@@ -25,12 +26,15 @@ __published:	// IDE-managed Components
   TButton *ButtonLoad;
   TButton *ButtonSave;
   TButton *ButtonDelete;
+  TApplicationEvents *ApplicationEvents;
   void __fastcall ButtonSaveClick(TObject *Sender);
   void __fastcall ListBoxPresetsClick(TObject *Sender);
   void __fastcall ButtonLoadClick(TObject *Sender);
   void __fastcall ButtonDeleteClick(TObject *Sender);
+  void __fastcall ApplicationEventsIdle(TObject *Sender, bool &Done);
 
 private:	// User declarations
+  bool m_bFirstIdle;
   TPresets *m_pPresets;
   TPreset m_CurrentSetting;
   TOnPreset OnPreset;

@@ -7,6 +7,7 @@
 
 #include "PresetsForm.h"
 #include "PromptForString.h"
+#include "Util.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -26,6 +27,7 @@ void ShowPresets(TPresets &Presets, const TPreset &CurrentSetting, TOnPreset OnP
 
 __fastcall TFormPresets::TFormPresets(TComponent* Owner)
   : TForm(Owner)
+  , m_bFirstIdle(true)
   , m_pPresets(NULL)
 {
 }
@@ -132,6 +134,16 @@ void __fastcall TFormPresets::ButtonDeleteClick(TObject *Sender)
   ListBoxPresets->Items->Delete(ListBoxPresets->ItemIndex);
   ListBoxPresets->ItemIndex = -1;
   FillList();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormPresets::ApplicationEventsIdle(TObject *Sender, bool &Done)
+{
+  if (m_bFirstIdle)
+    {
+    m_bFirstIdle = false;
+    EnsureOnScreen(this);
+    }
 }
 //---------------------------------------------------------------------------
 

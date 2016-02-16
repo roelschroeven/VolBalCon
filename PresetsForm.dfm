@@ -59,4 +59,9 @@ object FormPresets: TFormPresets
     TabOrder = 3
     OnClick = ButtonDeleteClick
   end
+  object ApplicationEvents: TApplicationEvents
+    OnIdle = ApplicationEventsIdle
+    Left = 8
+    Top = 8
+  end
 end

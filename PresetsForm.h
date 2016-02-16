@@ -32,6 +32,7 @@ __published:	// IDE-managed Components
   void __fastcall ButtonLoadClick(TObject *Sender);
   void __fastcall ButtonDeleteClick(TObject *Sender);
   void __fastcall ApplicationEventsIdle(TObject *Sender, bool &Done);
+  void __fastcall FormKeyPress(TObject *Sender, wchar_t &Key);
 
 private:	// User declarations
   bool m_bFirstIdle;

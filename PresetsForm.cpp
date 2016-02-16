@@ -147,3 +147,10 @@ void __fastcall TFormPresets::ApplicationEventsIdle(TObject *Sender, bool &Done)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormPresets::FormKeyPress(TObject *Sender, wchar_t &Key)
+{
+  if (Key == VK_ESCAPE)
+    Close();
+}
+//---------------------------------------------------------------------------
+

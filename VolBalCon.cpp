@@ -5,8 +5,10 @@
 #include <tchar.h>
 //---------------------------------------------------------------------------
 USEFORM("MainForm.cpp", FormMain);
+USEFORM("PresetsForm.cpp", FormPresets);
+USEFORM("PromptForString.cpp", FormPromptForString);
 //---------------------------------------------------------------------------
-#pragma link "TrescoUtilLib.lib"
+#pragma link "rsutil.lib"
 //---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

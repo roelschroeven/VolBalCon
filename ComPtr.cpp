@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include <TrescoUtilLib.h>
+#include <RsUtil.h>
 
 #include "ComPtr.h"
 
@@ -13,11 +13,11 @@
 
 ECom::ECom(AnsiString FunctionName, HRESULT hr): Exception(""), hr(hr)
 {
-  Message = PrintF("%s: error %u == 0x%08x == \"%ls\"",
+  Message = rsutil::PrintF("%s: error %u == 0x%08x == \"%ls\"",
     FunctionName.c_str(),
     hr,
     hr,
-    GetErrorText(hr).c_str());
+    rsutil::GetErrorText(hr).c_str());
 }
 
 IUnknown* CoCreateInstance(REFCLSID ClassId, REFIID InterfaceId)

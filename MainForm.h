@@ -16,6 +16,7 @@
 #include <Endpointvolume.h>
 
 #include "ComPtr.h"
+#include "Presets.h"
 #include "VolumeCallback.h"
 
 class TFormMain : public TForm
@@ -25,9 +26,11 @@ __published:	// IDE-managed Components
   TTrackBar *TrackBarMaster;
   TGroupBox *GroupBoxChannels;
   TTrackBar *TrackBarChannel0;
+  TButton *ButtonPresets;
   void __fastcall TrackBarMasterChange(TObject *Sender);
   void __fastcall TrackBarChannelChange(TObject *Sender);
   void __fastcall FormKeyPress(TObject *Sender, wchar_t &Key);
+  void __fastcall ButtonPresetsClick(TObject *Sender);
 
 private:	// User declarations
   TComPtr<IAudioEndpointVolume> m_VolumeControl;
@@ -43,6 +46,10 @@ private:	// User declarations
   void SetMasterVolume(float Volume);
   float GetChannelVolume(UINT Channel);
   void SetChannelVolume(UINT Channel, float Volume);
+
+  TPreset GetCurrentSetting();
+  TPresets m_Presets;
+  void OnPreset(const TPreset &Preset);
 
 public:		// User declarations
   __fastcall TFormMain(TComponent* Owner);

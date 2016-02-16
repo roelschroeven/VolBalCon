@@ -6,6 +6,7 @@
 #include <Mmdeviceapi.h>
 
 #include "MainForm.h"
+#include "PresetsForm.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -210,6 +211,32 @@ void __fastcall TFormMain::FormKeyPress(TObject *Sender, wchar_t &Key)
 {
   if (Key == VK_ESCAPE)
     Close();
+  else if (Key == L'p' || Key == L'P')
+    ShowPresets(m_Presets, GetCurrentSetting(), OnPreset);
+}
+//---------------------------------------------------------------------------
+
+void TFormMain::OnPreset(const TPreset &Preset)
+{
+  TrackBarMaster->Position = 100 - Preset.Master * 100;
+  for (UINT i = 0; i < std::min(m_ChannelSliders.size(), Preset.Channels.size()); ++i)
+    m_ChannelSliders[i]->Position = 100 - Preset.Channels[i] * 100;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormMain::ButtonPresetsClick(TObject *Sender)
+{
+  ShowPresets(m_Presets, GetCurrentSetting(), OnPreset);
+}
+//---------------------------------------------------------------------------
+
+TPreset TFormMain::GetCurrentSetting()
+{
+  TPreset Preset;
+  Preset.Master = GetMasterVolume();
+  for (unsigned i = 0; i < m_ChannelSliders.size(); ++i)
+    Preset.Channels.push_back(GetChannelVolume(i));
+  return Preset;
 }
 //---------------------------------------------------------------------------
 
